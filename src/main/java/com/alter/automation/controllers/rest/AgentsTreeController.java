@@ -44,7 +44,6 @@ public class AgentsTreeController {
 
     @RequestMapping(value ="/submit",  method = RequestMethod.POST)
     public void submitordr(@RequestBody List<TreeJson>  treeJson) {
-       //agentDao.sendToAgent(treeJson);
         report1356.sendReport(treeJson);
     }
 }
