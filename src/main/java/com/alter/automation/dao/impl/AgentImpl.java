@@ -49,7 +49,6 @@ public class AgentImpl implements AgentDao {
                         agentsSql.getInt("treelevel"),
                         agentsSql.getString("beepresemail"));
                 agents.add(agent);
-
             }
             alterDB.close();
             return agents;

@@ -165,7 +165,7 @@ public class Report1356 {
             String reportsArch = new ZipFiles().zipFiles(excelFiles);
             String email = agentDao.getAgentById(Integer.valueOf(tj.getTags().get(0))).getEmail();
             System.out.println(email + " " +reportsArch);
-            new SendAttachmentInEmail().sendMessage(email, "alter-debit-report", "", reportsArch);
+           // new SendAttachmentInEmail().sendMessage(email, "alter-debit-report", "", reportsArch);
         }
 }
 

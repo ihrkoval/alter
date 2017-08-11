@@ -73,7 +73,7 @@ public class ReportsIMPL implements ReportsDao {
                 "Docdate, " +
                 "EndSumm, " +
                 "debt, '~ '||COMMENT1 as comment1, " +
-                "(select case when maxdelay is null then 0 else maxdelay end from credlimits where ClientID = O.ClientID and paycatid=1) daydelay, " +
+                "(select case when maxdelay is null then 0 else maxdelay end from credlimits where ClientID = O.ClientID and paycatid= iif(o.storeid =0,1,2)) daydelay, " +
                 "(select sname from agents " +
                 "where treelevel = 2 " +
                 "and parentid <> 0 " +
@@ -96,7 +96,7 @@ public class ReportsIMPL implements ReportsDao {
                 "from sprOutcomeInvoice " +
                 "(null,null,'01.01.2006','"+today()+"',0,1,'1,2,3,6',0,"+agentId+") o " +
                 "where (PAYPERCENT <> 100 or  UDFUNULLAS0(PAYPERCENT)= 0) " +
-                "and debt>0) order by cname, docdate DESC ";
+                "and debt>0) order by cname DESC, docdate DESC ";
         System.out.println(query);
 
         try {
